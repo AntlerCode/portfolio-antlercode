@@ -3,6 +3,7 @@ import Marquee from "@/components/sections/Marquee";
 import About from "@/components/sections/About";
 import Work from "@/components/sections/Work";
 import Blog from "@/components/sections/Blog";
+import Contact from "@/components/sections/Contact";
 
 export default function Home() {
     return <main>
@@ -11,5 +12,6 @@ export default function Home() {
         <About />
         <Work />
         <Blog />
+        <Contact />
     </main>;
 }
