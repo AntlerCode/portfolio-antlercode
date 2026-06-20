@@ -2,6 +2,7 @@ import type { Metadata } from "next";
 import { Newsreader, Spline_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
 import Nav from "@/components/layout/Nav"
+import Footer from "@/components/layout/Footer";
 import RevealObserver from "@/components/RevealObserver";
 
 /* Three families, loaded & self-hosted by next/font.
@@ -45,6 +46,7 @@ export default function RootLayout({
             <Nav />
             <RevealObserver />
             {children}
+            <Footer />
         </body>
         </html>
     );
