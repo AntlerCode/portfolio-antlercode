@@ -1,7 +1,8 @@
 import type { Metadata } from "next";
 import { Newsreader, Spline_Sans, JetBrains_Mono } from "next/font/google";
 import "./globals.css";
-import Nav from "@/components/layout/Nav";
+import Nav from "@/components/layout/Nav"
+import RevealObserver from "@/components/RevealObserver";
 
 /* Three families, loaded & self-hosted by next/font.
    Each exposes a CSS variable that globals.css maps to --serif / --sans / --mono. */
@@ -42,6 +43,7 @@ export default function RootLayout({
         >
         <body>
             <Nav />
+            <RevealObserver />
             {children}
         </body>
         </html>
