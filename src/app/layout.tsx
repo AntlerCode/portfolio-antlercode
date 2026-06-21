@@ -4,6 +4,7 @@ import "./globals.css";
 import Nav from "@/components/layout/Nav"
 import Footer from "@/components/layout/Footer";
 import RevealObserver from "@/components/RevealObserver";
+import CustomCursor from "@/components/ui/CustomCursor";
 
 /* Three families, loaded & self-hosted by next/font.
    Each exposes a CSS variable that globals.css maps to --serif / --sans / --mono. */
@@ -45,6 +46,7 @@ export default function RootLayout({
         <body>
             <Nav />
             <RevealObserver />
+            <CustomCursor />
             {children}
             <Footer />
         </body>
