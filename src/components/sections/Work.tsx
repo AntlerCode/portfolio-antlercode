@@ -9,23 +9,14 @@ export default function Work(){
                 <div className="work-list">
                     <Link className="work-item reveal" href="/work">
                         <span className="wi-num">001</span>
-                        <span><span className="wi-title">Racing Mashers</span><span className="wi-desc">A rage-inducing arcade racer where mashing the spacebar is the only way to move the car.</span></span>
-                        <span className="wi-tags"><span className="tag tag--ember">Game</span><span
-                            className="tag">Canvas</span><span className="tag">JS</span></span>
+                        <span><span className="wi-title">Dino Project</span><span className="wi-desc">A Node-driven player that streams video and projects it as a real-time hologram — full-stack, from the server to the room.</span></span>
+                        <span className="wi-tags"><span className="tag tag--ember">Full-stack</span><span className="tag">Node</span><span className="tag">Realtime</span></span>
                         <span className="wi-arrow">→</span>
                     </Link>
                     <Link className="work-item reveal" href="/work">
                         <span className="wi-num">002</span>
-                        <span><span className="wi-title">Dino Project</span><span className="wi-desc">A Node-driven player that streams video and projects it as a real-time hologram.</span></span>
-                        <span className="wi-tags"><span className="tag tag--ember">Hardware</span><span
-                            className="tag">Node</span><span className="tag">3D</span></span>
-                        <span className="wi-arrow">→</span>
-                    </Link>
-                    <Link className="work-item reveal" href="/work">
-                        <span className="wi-num">003</span>
-                        <span><span className="wi-title">Tasko Tracker</span><span className="wi-desc">Graduation project — a routine-building app for kids aged 9–12 and their parents.</span></span>
-                        <span className="wi-tags"><span className="tag tag--ember">Product</span><span
-                            className="tag">Mobile</span><span className="tag">UX</span></span>
+                        <span><span className="wi-title">Tasko Tracker</span><span className="wi-desc">Graduation project — a routine-building app for kids aged 9–12 and their parents, designed and built end to end.</span></span>
+                        <span className="wi-tags"><span className="tag tag--ember">Product</span><span className="tag">Mobile</span><span className="tag">UX</span></span>
                         <span className="wi-arrow">→</span>
                     </Link>
                 </div>

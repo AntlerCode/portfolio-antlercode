@@ -7,12 +7,12 @@ export default function Footer() {
                 <div className="foot-top">
                     <div>
                         <div className="foot-brand">Antler<span className="it">Code</span></div>
-                        <p className="foot-tag">A design-engineering practice.</p>
+                        <p className="foot-tag">Full-stack developer · UX/UI.</p>
                         <div className="statusdot" style={{marginTop: "20px"}}>Open for work</div>
                     </div>
                     <div className="foot-col">
                         <h5>Pages</h5>
-                        <Link href="/home">Home</Link><Link href="/work">Work</Link><Link href="/blog">Blog</Link><Link
+                        <Link href="/">Home</Link><Link href="/work">Work</Link><Link href="/blog">Blog</Link><Link
                         href="/about">About</Link><Link href="/about#stack">Stack</Link>
                     </div>
                     <div className="foot-col">
@@ -21,7 +21,7 @@ export default function Footer() {
                         href="mailto:hello@antlercode.dev">Email</a>
                     </div>
                 </div>
-                <div className="foot-bot"><span>© 2026 AntlerCode</span><span>Design × Engineering</span></div>
+                <div className="foot-bot"><span>© 2026 AntlerCode</span><span>Full-stack development</span></div>
             </div>
         </footer>
     )

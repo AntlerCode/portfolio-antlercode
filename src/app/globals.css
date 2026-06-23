@@ -392,7 +392,7 @@
     }
     .pagehead h1 .it {
         font-style: italic;
-        color: var(--copper);
+        color: var(--ember-bright);
     }
     .pagehead .lede {
         margin-top: 24px;
