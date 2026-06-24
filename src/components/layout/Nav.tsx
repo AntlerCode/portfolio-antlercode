@@ -1,6 +1,20 @@
+"use client";
+
 import Link from "next/link"
+import {usePathname} from "next/navigation";
 
 export default function Nav(){
+    const navLink: {label: string; href: string; class?: string}[] = [
+        {label:"Home",href:"/"},
+        {label:"Work",href:"/work"},
+        {label:"Blog",href:"/blog"},
+        {label:"About",href:"/about"},
+        {label:"Get in touch",href:"/#contact", class: "nav-cta"},
+    ]
+    const pathname = usePathname();
+
+
+
     return (
         <header className="nav">
             <Link className="brand" href="/">
@@ -9,11 +23,17 @@ export default function Nav(){
             </Link>
             <button className="menu-btn">Menu</button>
             <nav className="navlinks">
-                <Link href="/" className="active">Home</Link>
-                <Link href="/work">Work</Link>
-                <Link href="/blog">Blog</Link>
-                <Link href="/about">About</Link>
-                <Link className="nav-cta" href="#contact">Get in touch</Link>
+                {
+                    navLink.map((link) => (
+                        <Link
+                            key={link.href}
+                            href={link.href}
+                            className={link.class ? link.class : pathname === link.href ? "active" : ""}
+                        >
+                        {link.label}
+                        </Link>
+                    ))
+                }
             </nav>
         </header>
     )
