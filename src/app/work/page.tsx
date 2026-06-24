@@ -9,7 +9,7 @@ export default function Work(){
             <main className="wrap">
             {
                 projects.map((project, index) =>(
-                <ProjectCard key={project.projNo} {...project} index={index}/>
+                <ProjectCard key={project.cat} {...project} index={index}/>
                 ))
             }
             </main>
