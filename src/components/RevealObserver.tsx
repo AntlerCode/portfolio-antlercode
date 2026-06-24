@@ -1,8 +1,10 @@
 "use client";
 
 import { useEffect } from "react";
+import {usePathname} from "next/navigation";
 
 export default function RevealObserver(): null {
+    const pathname = usePathname()
     useEffect(() => {
         const checkReveals = () => {
             const vh = window.innerHeight;
@@ -25,7 +27,7 @@ export default function RevealObserver(): null {
             window.removeEventListener("scroll", checkReveals);
             window.removeEventListener("resize", checkReveals);
         };
-    }, []);
+    }, [pathname]);
 
     return null;
 }
