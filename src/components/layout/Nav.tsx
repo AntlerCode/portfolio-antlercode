@@ -15,6 +15,7 @@ export default function Nav(){
     const pathname = usePathname();
 
     const [scrolled, setScrolled] = useState(false);
+    const [isOpen, setIsOpen] = useState<boolean>(false);
 
     useEffect(() => {
         const onScroll = () =>
@@ -31,8 +32,8 @@ export default function Nav(){
                 <img className="mark" src="/assets/logo-AntlerCode.svg" alt="AntlerCode logo"/>
                 AntlerCode
             </Link>
-            <button className="menu-btn">Menu</button>
-            <nav className="navlinks">
+            <button className="menu-btn" onClick={() => setIsOpen(o => !o)}>{isOpen ? "Close" : "Menu"}</button>
+            <nav className={`navlinks${isOpen ? " open" : ""}`}>
                 {
                     navLink.map((link) => (
                         <Link
