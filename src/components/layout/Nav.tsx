@@ -1,7 +1,8 @@
 "use client";
 
 import Link from "next/link"
-import {usePathname} from "next/navigation";
+import { usePathname } from "next/navigation";
+import { useEffect, useState } from "react";
 
 export default function Nav(){
     const navLink: {label: string; href: string; class?: string}[] = [
@@ -13,10 +14,19 @@ export default function Nav(){
     ]
     const pathname = usePathname();
 
+    const [scrolled, setScrolled] = useState(false);
 
+    useEffect(() => {
+        const onScroll = () =>
+            setScrolled(window.scrollY > 10);
+        window.addEventListener("scroll", onScroll, {
+            passive: true });
+        return () =>
+            window.removeEventListener("scroll", onScroll);
+    }, []);
 
     return (
-        <header className="nav">
+        <header className={`nav${scrolled ? " scrolled" : ""}`}>
             <Link className="brand" href="/">
                 <img className="mark" src="/assets/logo-AntlerCode.svg" alt="AntlerCode logo"/>
                 AntlerCode
