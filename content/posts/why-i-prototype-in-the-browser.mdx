@@ -1,0 +1,55 @@
+---
+title: "Why I prototype in the browser before Figma"
+date: "2026-05-14"
+cat: "Process"
+excerpt: "The fastest way to know whether an interaction works is to make it move — not to describe it, not to draw arrows between frames."
+author: "Tibo Kooreman"
+duration: "6"
+---
+
+The fastest way to know whether an interaction works is to make it move. Not to describe it, not to draw arrows between frames — to actually feel it under your cursor. That single belief has quietly rearranged my whole process, and these days I open a code editor long before I open a design tool.
+
+This isn't an anti-Figma argument. Figma is where I think in *systems* — spacing, type, the shape of a whole product. But the moment a design depends on timing, momentum, or how something responds to a drag, a static frame starts lying to me. It looks resolved when it isn't.
+
+## Static mockups hide the hard parts
+
+A button is easy to draw. The 180 milliseconds between tapping it and seeing a result is not — and that gap is where products either feel alive or feel cheap. You can't pixel-push your way to good motion. You have to run it.
+
+> If an idea only works in a screenshot, it doesn't work yet.
+
+So I scaffold the rough thing in HTML and a few lines of JavaScript. No framework, no build step — just enough to **press the button and watch what happens**. Half the time the interaction I'd imagined turns out to be annoying, and I'd never have known from a frame.
+
+*Build the feeling first. Decorate it second.*
+
+## My actual workflow
+
+It's less precious than it sounds. Roughly:
+
+- Sketch the idea on paper — thirty seconds, no fidelity.
+- Block it out in the browser until the core interaction *feels* right.
+- **Then** open Figma to make the system around it consistent.
+- Loop back to code whenever something is in doubt.
+
+The part people underestimate is how cheap a throwaway prototype really is:
+
+```js
+const card = document.querySelector('.card');
+let x = 0, target = 0;
+addEventListener('pointermove', e => {
+  target = e.clientX;
+});
+function loop(){
+  x += (target - x) * 0.12;
+  card.style.transform = `translateX(${x}px)`;
+  requestAnimationFrame(loop);
+}
+loop();
+```
+
+Twelve lines, and suddenly I'm *feeling* the easing curve instead of guessing at it. That's the whole point — the prototype answers a question a mockup can only pose.
+
+### It changes what you design
+
+When making things move is cheap, you propose braver things. You stop designing the safe version just because it's the one that's easier to draw — and you find out what actually works while it's still cheap to change.
+
+None of this makes the design tools obsolete. It just puts them in the right order. Think in systems where systems live; think in motion where motion lives. Build the feeling first, and let everything else organise around it.
