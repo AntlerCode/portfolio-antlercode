@@ -10,7 +10,6 @@ export default function Nav(){
         {label:"Work",href:"/work"},
         {label:"Blog",href:"/blog"},
         {label:"About",href:"/about"},
-        {label:"Get in touch",href:"/#contact", class: "nav-cta"},
     ]
     const pathname = usePathname();
 
@@ -44,6 +43,9 @@ export default function Nav(){
                         {link.label}
                         </Link>
                     ))
+                }
+                {
+                    pathname === "/blog" ? <Link className="nav-cta" href="/blog#subscribe">Subscribe</Link> : <Link className="nav-cta" href="#contact">Get in touch</Link>
                 }
             </nav>
         </header>
