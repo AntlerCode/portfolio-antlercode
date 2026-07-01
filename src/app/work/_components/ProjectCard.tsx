@@ -1,7 +1,4 @@
-"use client"
-
 import Image from "next/image";
-import { useState } from "react";
 
 interface ProjectCardProps {
     index: number;
@@ -19,19 +16,14 @@ interface ProjectCardProps {
 }
 
 export default function ProjectCard({title, image, cat, body, fact, tags, link, index}: ProjectCardProps ) {
-    const [imgError, setImgError] = useState<boolean>(false);
-
     return (
         <article className="proj reveal">
             <div className="proj-media"><span className="idx">{String(index + 1).padStart(2,"0")}</span>
-                {
-                    imgError ? (
-                        <div className="proj-img-placeholder"><span>{title}</span></div>
-                    ) : (
-                        <Image onError={() => setImgError(true)} src={image} alt={title} width={800} height={600}/>
-                    )
-                }
-                            </div>
+                <div className="proj-img-placeholder img-slot">
+                    {image && image !== "/" && <Image src={image} alt={title} fill style={{objectFit: "cover"}} />}
+                    {(!image || image === "/") && <span>{title}</span>}
+                </div>
+            </div>
             <div className="proj-body">
                 <div className="proj-no">project {String(index + 1).padStart(3,"0")} — {cat}</div>
                 <h2 className="proj-title">{title}</h2>
