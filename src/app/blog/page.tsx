@@ -1,5 +1,6 @@
 import BlogHero from "./_components/BlogHero";
 import Featured from "./_components/Featured";
+import PostList from "./_components/PostList";
 import { posts } from "@/lib/data/posts";
 
 
@@ -14,8 +15,8 @@ export default function BlogPage() {
                 }}
             >
                 <Featured {...posts[0]}  />
+                <PostList />
             </main>
-
         </>
     )
 }

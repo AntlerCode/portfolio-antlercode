@@ -1,13 +1,14 @@
-import { getPostBySlug, getAllPosts } from '@/lib/data/posts'
-import { MDXRemote } from 'next-mdx-remote/rsc'
+import { posts, getPostBySlug } from '@/lib/data/posts'
 
-export async function generateStaticParams() {
-    return getAllPosts().map(post => ({ slug: post.slug }))
+export function generateStaticParams() {
+    return posts.map(post => ({ slug: post.slug }))
 }
 
 export default async function PostPage({ params }: { params: Promise<{ slug: string }> }) {
     const { slug } = await params
     const post = getPostBySlug(slug)
+
+    if (!post) return <p>Post not found.</p>
 
     return (
         <article id="main" tabIndex={-1}>
@@ -24,7 +25,7 @@ export default async function PostPage({ params }: { params: Promise<{ slug: str
 
             <div className="article">
                 <div className="prose">
-                    <MDXRemote source={post.content} />
+                    <p>Content coming soon — backend not yet connected.</p>
                 </div>
             </div>
 

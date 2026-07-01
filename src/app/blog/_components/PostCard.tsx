@@ -6,7 +6,7 @@ import { PostMeta } from "@/lib/data/posts";
 export default function PostCard({slug, title, date, cat, excerpt, duration, image}: PostMeta) {
 
     return (
-        <Link className="post-card reveal" data-cat={cat} href={`/blog/${slug}`}>
+        <Link className="post-card" data-cat={cat} href={`/blog/${slug}`}>
             <div className="thumb img-slot">
                 <span className="c cat">{cat}</span>
                 {
@@ -17,7 +17,7 @@ export default function PostCard({slug, title, date, cat, excerpt, duration, ima
                 <h3>{title}</h3>
                 <p className="ex">{excerpt}</p>
                 <div className="meta">
-                    <span>{duration}</span>
+                    <span>{duration} min</span>
                     <span className="read">Read →</span>
                 </div>
             </div>
