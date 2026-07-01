@@ -30,6 +30,8 @@ export function getAllPosts(): PostMeta[] {
         const { data } = matter(raw)                                    // data = frontmatter object
         const slug = file.replace('.mdx', '')                           // filename → slug
         return { slug, ...data } as PostMeta
+    }).sort((a, b) => {
+        return b.date.localeCompare(a.date)
     })
 }
 
