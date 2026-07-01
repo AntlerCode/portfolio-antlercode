@@ -8,6 +8,7 @@ import { useState } from "react";
 export default function PostList() {
 
     const [cat, setCat] = useState<string>("all");
+    const [visible, setVisible] = useState<number>(9);
 
     const filtered = cat === "all" ? posts : posts.filter(post => post.cat === cat);
 
@@ -17,13 +18,19 @@ export default function PostList() {
         <>
             <div className="filterbar reveal" data-filters>
                 <span className="fl">Filter —</span>
-                <button className={cat === "all" ? "active" : ""} data-f="all" onClick={()=> setCat("all")}>All</button>
+                <button className={cat === "all" ? "active" : ""} data-f="all" onClick={() => {
+                    setCat("all");
+                    setVisible(9);
+                }}>All</button>
                 {
                     categories.map(c => (
                         <button
                             key={c}
                             data-f={c.toLowerCase()}
-                            onClick={() => setCat(c)}
+                            onClick={() => {
+                                setCat(c);
+                                setVisible(9);
+                            }}
                             className={cat === c ? "active" : ""}
                         >
                             {c}
@@ -34,11 +41,20 @@ export default function PostList() {
 
             <div className="posts reveal">
                 {
-                    filtered.map((post) => (
+                    filtered.slice(0, visible).map((post) => (
                         <PostCard key={post.slug} {...post} />
                     ))
                 }
             </div>
+            {
+                filtered.length > 9 && (
+                <div className="loadmore">
+                    <button className="btn btn--ghost"
+                            onClick={() => setVisible(v => v + 9)}>
+                        Load more <span className="arr">↓</span>
+                    </button>
+                </div>
+            )}
         </>
     )
 }
