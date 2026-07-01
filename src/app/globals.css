@@ -1198,6 +1198,238 @@
         }
     }
 
+    /* ---------- blog page — featured ---------- */
+    .featured {
+        display: grid;
+        grid-template-columns: 1.05fr .95fr;
+        gap: clamp(28px,4vw,56px);
+        align-items: center;
+        padding: clamp(34px,4vw,48px);
+        border: 1px solid var(--faint);
+        border-radius: 14px;
+        background: var(--shadow-2);
+        position: relative;
+        overflow: hidden;
+        margin-bottom: clamp(50px,7vw,80px);
+    }
+    .featured::before {
+        content: "";
+        position: absolute;
+        left: 0;
+        top: 0;
+        bottom: 0;
+        width: 4px;
+        background: var(--ember);
+    }
+    .feat-media img {
+        width: 100%;
+        aspect-ratio: 16/11;
+        height: auto;
+        display: block;
+        border-radius: 8px;
+        overflow: hidden;
+    }
+    .feat-flag {
+        display: inline-flex;
+        align-items: center;
+        gap: 9px;
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: .16em;
+        text-transform: uppercase;
+        color: var(--bone);
+        background: var(--ember);
+        padding: 6px 12px;
+        border-radius: 999px;
+    }
+    .feat-title {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: clamp(28px,4vw,50px);
+        line-height: 1.04;
+        margin: 18px 0 16px;
+        text-wrap: pretty;
+    }
+    .feat-ex {
+        color: var(--muted);
+        font-size: 16px;
+        max-width: 48ch;
+    }
+    .feat-meta {
+        margin: 22px 0 26px;
+        font-family: var(--mono);
+        font-size: 11.5px;
+        letter-spacing: .08em;
+        text-transform: uppercase;
+        color: var(--dim);
+        display: flex;
+        gap: 18px;
+        flex-wrap: wrap;
+    }
+    @media(max-width:780px) {
+        .featured {
+            grid-template-columns: 1fr;
+            gap: 24px;
+        }
+        .featured .feat-media {
+            order: -1;
+        }
+    }
+
+    .feat-img-placeholder {
+        width: 100%;
+        aspect-ratio: 16/11;
+        background: var(--shadow-2);
+        border: 1px solid var(--faint);
+        border-radius: 4px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+    }
+    .feat-img-placeholder span {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: .12em;
+        text-transform: uppercase;
+        color: var(--muted);
+    }
+
+    /* ---------- blog page — filter bar ---------- */
+    .filterbar {
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+        margin-bottom: 40px;
+        align-items: center;
+    }
+    .filterbar .fl {
+        font-family: var(--mono);
+        font-size: 11px;
+        letter-spacing: .14em;
+        text-transform: uppercase;
+        color: var(--dim);
+        margin-right: 6px;
+    }
+    .filterbar button {
+        font-family: var(--mono);
+        font-size: 12px;
+        letter-spacing: .06em;
+        text-transform: uppercase;
+        color: var(--muted);
+        background: none;
+        border: 1px solid var(--faint);
+        padding: 9px 16px;
+        border-radius: 999px;
+        transition: all .25s;
+    }
+    .filterbar button:hover {
+        color: var(--bone);
+        border-color: var(--hair);
+    }
+    .filterbar button.active {
+        background: var(--copper);
+        border-color: var(--copper);
+        color: var(--shadow);
+    }
+
+    /* ---------- blog page — post grid ---------- */
+    .posts {
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 24px;
+    }
+    @media(max-width:900px) {
+        .posts { grid-template-columns: repeat(2,1fr); }
+    }
+    @media(max-width:580px) {
+        .posts { grid-template-columns: 1fr; }
+    }
+    .post-card .thumb {
+        width: 100%;
+        aspect-ratio: 16/10;
+        background: repeating-linear-gradient(135deg,rgba(184,115,51,.10) 0 12px,transparent 12px 24px),var(--panel);
+        border-bottom: 1px solid var(--faint);
+        position: relative;
+    }
+    .post-card .thumb .c {
+        position: absolute;
+        left: 14px;
+        top: 14px;
+    }
+    .post-card .body {
+        padding: 22px 22px 24px;
+        display: flex;
+        flex-direction: column;
+        gap: 12px;
+        flex: 1;
+    }
+    .post-card .ex {
+        color: var(--muted);
+        font-size: 14px;
+        line-height: 1.55;
+    }
+
+    /* ---------- blog page — load more ---------- */
+    .loadmore {
+        display: flex;
+        justify-content: center;
+        margin-top: 56px;
+    }
+
+    /* ---------- blog page — newsletter ---------- */
+    .news {
+        margin-top: clamp(60px,9vw,100px);
+    }
+    .news-box {
+        border: 1px solid var(--faint);
+        border-radius: 14px;
+        padding: clamp(34px,5vw,60px);
+        text-align: center;
+        background: radial-gradient(600px circle at 50% -20%,var(--copper-soft),transparent 70%),var(--shadow-2);
+    }
+    .news-box h2 {
+        font-family: var(--serif);
+        font-weight: 400;
+        font-size: clamp(28px,4.5vw,48px);
+        margin-bottom: 14px;
+    }
+    .news-box h2 .it {
+        font-style: italic;
+        color: var(--copper);
+    }
+    .news-box p {
+        color: var(--muted);
+        max-width: 44ch;
+        margin: 0 auto 28px;
+    }
+    .news-form {
+        display: flex;
+        gap: 10px;
+        justify-content: center;
+        max-width: 440px;
+        margin: 0 auto;
+        flex-wrap: wrap;
+    }
+    .news-form input {
+        flex: 1;
+        min-width: 200px;
+        background: var(--shadow);
+        border: 1px solid var(--hair);
+        color: var(--bone);
+        font-family: var(--mono);
+        font-size: 13px;
+        padding: 14px 16px;
+        border-radius: 999px;
+        outline: none;
+        transition: border-color .3s;
+    }
+    .news-form input:focus {
+        border-color: var(--copper);
+    }
+    .news-form input::placeholder {
+        color: var(--dim);
+    }
+
     /* ---------- accessibility ---------- */
     :focus-visible {
         outline: 2px solid var(--copper);
